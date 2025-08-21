@@ -1,6 +1,9 @@
-/index.html
-/images/logo.png
-/images/forest.png
-/images/water.png
-/images/desert.png
-/images/sky.png
+my-website/
+│
+├── index.html
+└── images/
+    ├── logo.png
+    ├── forest.png
+    ├── water.png
+    ├── desert.png
+    └── sky.png
