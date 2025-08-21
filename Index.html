@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unicorn Adventures: Enchanted Realms</title>
+  <meta name="description" content="Explore the Enchanted Forest, Water, Desert and Sky Realms in Unicorn Adventures.">
+
+  <!-- Fonts: enchanted display + friendly body -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* Core palette to match your artwork */
+      --bg-deep:#0B0A1A;           /* night backdrop */
+      --bg-grad-1:#1a1640;         /* twilight violet */
+      --primary:#7B2CFF;           /* glitter purple */
+      --accent:#7AD7FF;            /* starlight blue */
+      --pink:#FF66E5;              /* pink glow */
+      --gold:#FFD166;              /* fairy gold */
+      --card:#14122b;              /* card base */
+      --ink:#F7F7FF;               /* main text */
+      --muted:#CFD3FF;             /* subtext */
+      --ring: rgba(123, 44, 255, .35);
+    }
+
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0; }
+
+    body{
+      color:var(--ink);
+      font-family:"Quicksand", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, var(--bg-grad-1), var(--bg-deep)),
+        linear-gradient(180deg, #0b0a1a 0%, #0b0a1a 100%);
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    /* Soft sparkles */
+    body::before, body::after{
+      content:"";
+      position:fixed; inset:0; pointer-events:none;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.55) 40%, transparent 41%),
+        radial-gradient(2px 2px at 70% 60%, rgba(122,215,255,.6) 40%, transparent 41%),
+        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,102,229,.6) 40%, transparent 41%);
+      background-repeat:repeat;
+      mix-blend-mode:screen;
+      opacity:.25;
+    }
+
+    header, footer{ text-align:center; padding:22px 16px; }
+    header img{ max-height:96px; width:auto; filter: drop-shadow(0 6px 18px rgba(123,44,255,.35)); }
+
+    .hero{ text-align:center; padding:32px 16px; }
+    .hero h1{
+      font-family:"Cinzel Decorative", serif;
+      font-weight:700;
+      letter-spacing:.5px;
+      margin:6px 0 10px;
+      font-size:clamp(36px, 6vw, 64px);
+      background:linear-gradient(135deg, var(--gold), var(--pink), var(--accent));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,.15);
+    }
+    .hero p{ color:var(--muted); margin:0 auto 18px; max-width:840px; font-size:clamp(16px,2.4vw,19px); }
+
+    .badges{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:10px 0 18px; }
+    .badge{
+      padding:6px 12px; border-radius:999px; font-size:12px;
+      background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 0 2px rgba(255,255,255,.02), 0 6px 24px rgba(123,44,255,.25);
+    }
+
+    .cta{
+      display:inline-block; padding:12px 20px; border-radius:12px; font-weight:800; text-decoration:none;
+      color:#0b0a1a;
+      background:linear-gradient(135deg, var(--pink), var(--accent));
+      box-shadow: 0 10px 36px rgba(122,215,255,.4), inset 0 0 0 1px rgba(255,255,255,.2);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .cta:hover{ transform:translateY(-1px); box-shadow: 0 14px 40px rgba(122,215,255,.55), inset 0 0 0 1px rgba(255,255,255,.25); }
+
+    .section{ padding:10px 24px 44px; max-width:1200px; margin:0 auto; }
+
+    .grid{
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:20px; padding:0 6px; margin-top:6px;
+    }
+
+    .card{
+      position:relative; border-radius:16px; overflow:hidden;
+      background:linear-gradient(180deg, rgba(20,18,43,.9), rgba(20,18,43,.7));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:
+        0 0 0 3px rgba(255,255,255,.02),
+        0 12px 40px rgba(11,10,26,.65),
+        0 0 24px var(--ring);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover{ transform:translateY(-3px); box-shadow: 0 16px 48px rgba(11,10,26,.75), 0 0 28px rgba(123,44,255,.45); }
+
+    .card img{ display:block; width:100%; height:280px; object-fit:cover; }
+    .card h3{
+      position:absolute; left:12px; bottom:12px; margin:0;
+      padding:8px 12px; border-radius:10px;
+      background:linear-gradient(135deg, rgba(0,0,0,.55), rgba(0,0,0,.35));
+      backdrop-filter: blur(4px);
+      font-family:"Cinzel Decorative", serif; letter-spacing:.3px; font-weight:700; font-size:18px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    form{ display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:center; margin-top:18px; }
+    input[type="email"]{
+      padding:12px 14px; border-radius:12px; min-width:260px; outline:none;
+      border:1px solid rgba(255,255,255,.28);
+      background:linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,.06));
+      color:var(--ink);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+    }
+    button[type="submit"]{
+      padding:12px 18px; border-radius:12px; border:0; font-weight:800; cursor:pointer;
+      color:#0b0a1a;
+      background:linear-gradient(135deg, var(--primary), var(--pink));
+      box-shadow: 0 10px 36px rgba(123,44,255,.45);
+    }
+
+    footer{
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(123,44,255,.08), rgba(11,10,26,0));
+    }
+
+    /* Responsive tweaks */
+    @media (prefers-reduced-motion: reduce){
+      .cta, .card{ transition:none }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Place /images/logo.png (your glitter/unicorn logo) -->
+    <img src="images/logo.png" alt="Unicorn Adventures: Enchanted Realms logo" loading="eager" decoding="async">
+  </header>
+
+  <section class="hero">
+    <h1>Unicorn Adventures: Enchanted Realms</h1>
+    <p>Explore four magical worlds — Forest, Water, Desert, and Sky — befriend glittering unicorns and seahorses, and discover starlit secrets. A family-safe adventure built for wonder.</p>
+    <div class="badges">
+      <span class="badge">Kid-safe design</span>
+      <span class="badge">Exploration first</span>
+      <span class="badge">Guardian Mode</span>
+    </div>
+    <a class="cta" href="#signup">Get Early Updates</a>
+  </section>
+
+  <section class="section">
+    <div class="grid">
+      <div class="card">
+        <img src="images/forest.png" alt="Enchanted Forest Realm" loading="lazy" decoding="async">
+        <h3>Enchanted Forest</h3>
+      </div>
+      <div class="card">
+        <img src="images/water.png" alt="Water Realm" loading="lazy" decoding="async">
+        <h3>Water Realm</h3>
+      </div>
+      <div class="card">
+        <img src="images/desert.png" alt="Desert Realm" loading="lazy" decoding="async">
+        <h3>Desert Realm</h3>
+      </div>
+      <div class="card">
+        <img src="images/sky.png" alt="Sky Realm" loading="lazy" decoding="async">
+        <h3>Sky Realm</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="signup" class="section" style="text-align:center;">
+    <h2 style="font-family:'Cinzel Decorative', serif; letter-spacing:.4px;">Join the Adventure Early</h2>
+    <p style="color:var(--muted)">Sign up to get development updates, closed beta invites, and magical surprises.</p>
+
+    <!-- Netlify Forms ready -->
+    <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="early-access">
+      <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" placeholder="you@example.com" required />
+      <button type="submit">Notify Me</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Unicorn Adventures. All realms, creatures, and sparkles reserved.
+  </footer>
+</body>
+</html>
