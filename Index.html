@@ -1,3 +1,5 @@
+ Realms logo" loading="eager" decoding="async">
+  </header>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,9 +144,7 @@
 <body>
   <header>
     <!-- Place /images/logo.png (your glitter/unicorn logo) -->
-    <img src="images/logo.png" alt="Unicorn Adventures: Enchanted Realms logo" loading="eager" decoding="async">
-  </header>
-
+    <img src="images/logo.png" alt="Unicorn Adventures: Enchanted
   <section class="hero">
     <h1>Unicorn Adventures: Enchanted Realms</h1>
     <p>Explore four magical worlds — Forest, Water, Desert, and Sky — befriend glittering unicorns and seahorses, and discover starlit secrets. A family-safe adventure built for wonder.</p>
@@ -181,14 +181,27 @@
     <h2 style="font-family:'Cinzel Decorative', serif; letter-spacing:.4px;">Join the Adventure Early</h2>
     <p style="color:var(--muted)">Sign up to get development updates, closed beta invites, and magical surprises.</p>
 
-    <!-- Netlify Forms ready -->
-    <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="early-access">
-      <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-      <input type="email" name="email" placeholder="you@example.com" required />
-      <button type="submit">Notify Me</button>
-    </form>
-  </section>
+   <section id="signup" class="section" style="text-align:center;">
+  <h2>Join the Adventure Early</h2>
+  <p>Sign up to get development updates, closed beta invites, and magical surprises.</p>
+
+  <!-- Netlify Forms -->
+  <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+    <!-- required for Netlify to register the form -->
+    <input type="hidden" name="form-name" value="early-access">
+    <!-- honeypot (hidden) -->
+    <p style="display:none">
+      <label>Don’t fill this out: <input name="bot-field" /></label>
+    </p>
+
+    <input type="email" name="email" placeholder="you@example.com" required />
+    <button type="submit">Notify Me</button>
+
+    <!-- optional: Netlify reCAPTCHA -->
+    <!-- <div data-netlify-recaptcha="true"></div> -->
+  </form>
+</section>
+
 
   <footer>
     © 2025 Unicorn Adventures. All realms, creatures, and sparkles reserved.
