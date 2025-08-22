@@ -1,5 +1,3 @@
- Realms logo" loading="eager" decoding="async">
-  </header>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +6,13 @@
   <title>Unicorn Adventures: Enchanted Realms</title>
   <meta name="description" content="Explore the Enchanted Forest, Water, Desert and Sky Realms in Unicorn Adventures.">
 
-  <!-- Fonts: enchanted display + friendly body -->
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      /* Core palette to match your artwork */
-      --bg-deep:#0B0A1A;           /* night backdrop */
-      --bg-grad-1:#1a1640;         /* twilight violet */
-      --primary:#7B2CFF;           /* glitter purple */
-      --accent:#7AD7FF;            /* starlight blue */
-      --pink:#FF66E5;              /* pink glow */
-      --gold:#FFD166;              /* fairy gold */
-      --card:#14122b;              /* card base */
-      --ink:#F7F7FF;               /* main text */
-      --muted:#CFD3FF;             /* subtext */
+      --bg-deep:#0B0A1A; --bg-grad-1:#1a1640; --primary:#7B2CFF; --accent:#7AD7FF;
+      --pink:#FF66E5; --gold:#FFD166; --card:#14122b; --ink:#F7F7FF; --muted:#CFD3FF;
       --ring: rgba(123, 44, 255, .35);
     }
 
@@ -58,10 +48,8 @@
     .hero{ text-align:center; padding:32px 16px; }
     .hero h1{
       font-family:"Cinzel Decorative", serif;
-      font-weight:700;
-      letter-spacing:.5px;
-      margin:6px 0 10px;
-      font-size:clamp(36px, 6vw, 64px);
+      font-weight:700; letter-spacing:.5px;
+      margin:6px 0 10px; font-size:clamp(36px, 6vw, 64px);
       background:linear-gradient(135deg, var(--gold), var(--pink), var(--accent));
       -webkit-background-clip:text; background-clip:text; color:transparent;
       text-shadow: 0 0 20px rgba(255,255,255,.15);
@@ -135,7 +123,6 @@
       background: linear-gradient(180deg, rgba(123,44,255,.08), rgba(11,10,26,0));
     }
 
-    /* Responsive tweaks */
     @media (prefers-reduced-motion: reduce){
       .cta, .card{ transition:none }
     }
@@ -144,7 +131,9 @@
 <body>
   <header>
     <!-- Place /images/logo.png (your glitter/unicorn logo) -->
-    <img src="images/logo.png" alt="Unicorn Adventures: Enchanted
+    <img src="images/logo.png" alt="Unicorn Adventures: Enchanted Realms logo" loading="eager" decoding="async">
+  </header>
+
   <section class="hero">
     <h1>Unicorn Adventures: Enchanted Realms</h1>
     <p>Explore four magical worlds — Forest, Water, Desert, and Sky — befriend glittering unicorns and seahorses, and discover starlit secrets. A family-safe adventure built for wonder.</p>
@@ -177,34 +166,33 @@
     </div>
   </section>
 
+  <!-- SIGNUP -->
   <section id="signup" class="section" style="text-align:center;">
     <h2 style="font-family:'Cinzel Decorative', serif; letter-spacing:.4px;">Join the Adventure Early</h2>
     <p style="color:var(--muted)">Sign up to get development updates, closed beta invites, and magical surprises.</p>
 
-   <section id="signup" class="section" style="text-align:center;">
-  <h2>Join the Adventure Early</h2>
-  <p>Sign up to get development updates, closed beta invites, and magical surprises.</p>
+    <!-- Netlify Forms -->
+    <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+      <input type="hidden" name="form-name" value="early-access">
+      <p style="display:none">
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
 
-  <!-- Netlify Forms -->
-  <form name="early-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
-    <!-- required for Netlify to register the form -->
-    <input type="hidden" name="form-name" value="early-access">
-    <!-- honeypot (hidden) -->
-    <p style="display:none">
-      <label>Don’t fill this out: <input name="bot-field" /></label>
-    </p>
+      <input type="email" name="email" placeholder="you@example.com" required />
+      <button type="submit">Notify Me</button>
 
-    <input type="email" name="email" placeholder="you@example.com" required />
-    <button type="submit">Notify Me</button>
-
-    <!-- optional: Netlify reCAPTCHA -->
-    <!-- <div data-netlify-recaptcha="true"></div> -->
-  </form>
-</section>
-
+      <!-- Optional: enable reCAPTCHA in Netlify dashboard and then uncomment line below -->
+      <!-- <div data-netlify-recaptcha="true"></div> -->
+    </form>
+  </section>
 
   <footer>
     © 2025 Unicorn Adventures. All realms, creatures, and sparkles reserved.
   </footer>
 </body>
 </html>
+
+  
+
+
+
