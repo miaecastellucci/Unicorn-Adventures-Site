@@ -1,19 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Thanks!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You – Unicorn Adventures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;display:grid;place-items:center;height:100vh;margin:0;background:#0b0a1a;color:#f7f7ff;text-align:center}
-    a{color:#7ad7ff}
+    :root {
+      --bg-deep:#0B0A1A;
+      --bg-grad-1:#1a1640;
+      --primary:#7B2CFF;
+      --accent:#7AD7FF;
+      --pink:#FF66E5;
+      --gold:#FFD166;
+      --ink:#F7F7FF;
+      --muted:#CFD3FF;
+      --ring: rgba(123, 44, 255, .35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; padding:0;
+      font-family:"Quicksand", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, var(--bg-grad-1), var(--bg-deep)),
+        url("images/unicorn-bg.png") center/cover no-repeat;
+      min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center;
+      overflow:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.55) 40%, transparent 41%),
+        radial-gradient(2px 2px at 70% 60%, rgba(122,215,255,.6) 40%, transparent 41%),
+        radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,102,229,.6) 40%, transparent 41%);
+      background-repeat:repeat;
+      mix-blend-mode:screen;
+      opacity:.25;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(20,18,43,.9), rgba(20,18,43,.7));
+      padding:40px 28px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.15);
+      box-shadow:0 0 0 3px rgba(255,255,255,.03),
+                 0 12px 40px rgba(11,10,26,.65),
+                 0 0 24px var(--ring);
+      max-width:600px;
+    }
+    h1{
+      font-family:"Cinzel Decorative", serif;
+      font-size:clamp(32px, 6vw, 52px);
+      margin:0 0 12px;
+      background:linear-gradient(135deg, var(--gold), var(--pink), var(--accent));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      text-shadow: 0 0 20px rgba(255,255,255,.15);
+    }
+    p{ font-size:18px; color:var(--muted); margin-bottom:24px; }
+    a{
+      display:inline-block; padding:12px 22px; border-radius:12px; font-weight:700;
+      text-decoration:none; color:#0b0a1a;
+      background:linear-gradient(135deg, var(--pink), var(--accent));
+      box-shadow:0 10px 36px rgba(122,215,255,.4);
+      transition:.2s ease;
+    }
+    a:hover{ transform:translateY(-2px); box-shadow:0 14px 44px rgba(122,215,255,.55); }
   </style>
 </head>
 <body>
-  <main>
-    <h1>✨ You’re on the list!</h1>
-    <p>We’ll send magical updates as we explore the Enchanted Realms.</p>
-    <p><a href="/">← Back to site</a></p>
-  </main>
+  <div class="card">
+    <h1>✨ Thank You! ✨</h1>
+    <p>Your unicorn adventure awaits. We’ll send magical updates straight to your inbox soon.</p>
+    <a href="/">← Back to Realms</a>
+  </div>
 </body>
 </html>
